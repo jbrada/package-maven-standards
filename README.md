@@ -15,6 +15,9 @@ automated module testing — and it is shared here to be fully transparent about
 which checks actually run and why each excluded one was dropped. The reasoning
 for every exclusion is documented directly in the config files.
 
+It has no intention of replacing the Magento coding standard — it just makes it
+usable for real projects.
+
 Contributions are very welcome. If you think any rule should be added back,
 removed, or adjusted, please open an issue or send a pull request — the
 templates will ask you to explain the intention and reasoning behind the change
