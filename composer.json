@@ -16,9 +16,6 @@
             "name": "Jiří Brada"
         }
     ],
-    "require": {
-        "php": ">=8.1"
-    },
     "suggest": {
         "magento/magento-coding-standard": "The Magento2 ruleset the phpcs configuration builds on",
         "squizlabs/php_codesniffer": "Needed to run the phpcs ruleset",
