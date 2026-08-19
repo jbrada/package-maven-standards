@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ruleset name="PackageMavenTest">
+    <description>Ruleset used by the Package Maven module tests: the stock Magento2 standard minus docblock formality and a few noisy/broken sniffs.</description>
+
+    <rule ref="Magento2">
+        <!--
+            With PHP 8 native parameter, return and property types, @param/@var
+            docblocks only duplicate the signature — requiring them adds nothing.
+        -->
+        <exclude name="Magento2.Annotation.MethodArguments.ParamMissing" />
+        <exclude name="Magento2.Annotation.MethodAnnotationStructure.MethodAnnotation" />
+        <exclude name="Magento2.Commenting.ClassPropertyPHPDocFormatting.Missing" />
+
+        <!-- Both report the same missing-comment-block condition; drop the pair. -->
+        <exclude name="Magento2.Annotation.MethodArguments.NoCommentBlock" />
+        <exclude name="Magento2.Annotation.MethodAnnotationStructure.NoCommentBlock"/>
+
+        <!-- The Less sniffs themselves are gappy and unreliable, so their findings cannot be trusted. -->
+        <exclude name="Magento2.Less" />
+
+        <!-- Frequent false positives on variables assigned outside the template. -->
+        <exclude name="Magento2.Html.HtmlDirective.HtmlTemplatesUndefinedVariable" />
+
+        <!--
+            Misfires on jQuery-style markup in JS strings and on inline SVG, and
+            offers no way to suppress single occurrences, so it goes entirely.
+            See magento/magento-coding-standard#402.
+        -->
+        <exclude name="Magento2.Html.HtmlSelfClosingTags.HtmlSelfClosingNonVoidTag" />
+
+        <!-- Gone in phpcs 4.x; deprecated since 3.9.0. -->
+        <exclude name="Squiz.CSS.NamedColours" />
+    </rule>
+
+    <!--
+        Long class references in XML/layout files and dense phtml markup cannot be
+        wrapped without breaking them, so line-length only applies to PHP sources.
+    -->
+    <rule ref="Generic.Files.LineLength">
+        <exclude-pattern>*.xml</exclude-pattern>
+        <exclude-pattern>*.phtml</exclude-pattern>
+    </rule>
+</ruleset>

@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		-
+			identifier: ignore.unmatched
+		-
+			identifier: missingType.iterableValue
+	excludePaths:
+		- vendor/*/*/Test/**
+		- vendor/*/*/src/Test/**
+
+	errorFormat: json
