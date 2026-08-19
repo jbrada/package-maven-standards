@@ -4,6 +4,22 @@ The exact PHPCS and PHPStan configurations that [Package Maven](https://package-
 uses when testing Magento 2 modules. Published so module authors can reproduce the
 results locally.
 
+## Why a relaxed ruleset?
+
+Magento's out-of-the-box coding standard is a great baseline, but it is sometimes
+a bit behind: some sniffs don't work properly in practice, and others have gaps
+with newer PHP features (for example, requiring `@param` docblocks that only
+duplicate native parameter, return and property types). This repository is a
+deliberately relaxed version of that standard, tuned for Package Maven's
+automated module testing — and it is shared here to be fully transparent about
+which checks actually run and why each excluded one was dropped. The reasoning
+for every exclusion is documented directly in the config files.
+
+Contributions are very welcome. If you think any rule should be added back,
+removed, or adjusted, please open an issue or send a pull request — the
+templates will ask you to explain the intention and reasoning behind the change
+so it can be discussed properly.
+
 ## Contents
 
 | File | Purpose |
